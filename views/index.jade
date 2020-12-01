@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  div(class='container-fluid' style='margin-top: 2rem')
+    div(class='row')
+      div(class='col' style='border-right: 2px dashed gray;')
+        div(class='text-center' style='margin-bottom: 3rem')
+          h1 Find User Transactions
+        form(method='GET' action='search')
+          div(class='form-group')
+            label(for='userAddress') User address
+            input(type='text' class='form-control' id='userAddress' name='address' placeholder='User address')
+          div(class='form-row')
+            div(class='form-group col')
+              label(for='fromBlock') Starting block
+              input(type='number' class='form-control' id='fromBlock' name='bStart' placeholder='Block number' min='0')
+            div(class='form-group col')
+              label(for='toBlock') End block
+              input(type='number' class='form-control' id='toBlock' name='bEnd' placeholder='Block number' min='0')  
+          button(type='submit' class='btn btn-primary') Find
+      div(class='col')
+        div(class='text-center' style='margin-bottom: 3rem')
+          h1 Get User Balance
+        form(method='GET' action='balance')
+          div(class='form-group')
+            label(for='balanceAddress') User address
+            input(type='text' class='form-control' id='balanceAddress' name='address' placeholder='User address')
+          div(class='form-group')
+            label(for='balanceDate') Date
+            input(type='date' class='form-control' id='balanceDate' name='date')
+          div(class='form-group')
+            label(for='balanceTokenAddress') Token address
+            input(type='text' class='form-control' id='balanceTokenAddress' name='token' placeholder='Leave blank for ETH')
+          button(type='submit' class='btn btn-primary') Get

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div(style='margin-top: 30px')
+    table(class='table table-sm table-hover')
+      thead(class='thead-dark')
+        tr
+          th(scope='col') Txn Hash
+          th(scope='col') Block
+          th(scope='col') From
+          th(scope='col') To
+          th(scope='col') Value
+        each tx in txList
+          tr
+            td(scope='col') #{tx.hash}
+            td(scope='col') #{tx.blockNumber}
+            td(scope='col') #{tx.from}
+            if tx.tokenAmount
+              td(scope='col') #{tx.tokenTo}
+              td(scope='col') #{tx.tokenAmount} #{tx.tokenName}
+            else
+              td(scope='col') #{tx.to}
+              td(scope='col') #{tx.value} ETH
